@@ -96,6 +96,7 @@ const navLinks = [
   { label: 'Services',     anchor: '#services',     icon: 'mdi-pool' },
   { label: 'Why Us',       anchor: '#why-us',       icon: 'mdi-shield-check-outline' },
   { label: 'Service Area', anchor: '#service-area', icon: 'mdi-map-marker-outline' },
+  { label: 'Reviews',      anchor: '#reviews',      icon: 'mdi-star-outline' },
 ]
 
 const navStyle = computed(
