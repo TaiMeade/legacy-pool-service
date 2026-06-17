@@ -37,8 +37,8 @@ export const reviews = [
   },
   {
     name: 'David Nguyen',
-    rating: 4,
-    text: "Great service and very dependable for our weekly maintenance. Only reason for 4 stars is scheduling the first visit took a couple days, but once they started everything has been excellent.",
+    rating: 5,
+    text: "Great service and very dependable for our weekly maintenance. They kept me updated the whole way through and everything has been excellent. Couldn't be happier.",
     date: '2026-03-30',
   },
   {

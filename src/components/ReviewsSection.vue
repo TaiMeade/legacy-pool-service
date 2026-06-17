@@ -23,69 +23,62 @@
             <span class="font-weight-black text-primary" style="font-size: 1.5rem;">
               {{ overallRating.toFixed(1) }}
             </span>
-            <span class="text-secondary d-flex align-center" style="font-size: 0.9rem; gap: 4px;">
-              <v-icon size="16">mdi-google</v-icon>
+            <span class="text-secondary" style="font-size: 0.9rem;">
               Based on {{ totalReviews }} reviews
             </span>
           </div>
         </v-col>
       </v-row>
+    </v-container>
 
-      <!-- Review cards (each review = its own card) -->
-      <v-row justify="center">
-        <v-col
+    <!-- Review cards — horizontal scroll carousel -->
+    <v-container class="px-0 px-sm-3">
+      <div class="reviews-track px-4 px-sm-0">
+        <v-card
           v-for="(review, i) in reviews"
           :key="i"
-          cols="12"
-          sm="6"
-          lg="4"
-          class="d-flex"
+          rounded="xl"
+          elevation="0"
+          class="review-card pa-6 d-flex flex-column"
+          style="border: 1px solid rgba(8,145,178,0.12);"
         >
-          <v-card
-            rounded="xl"
-            elevation="0"
-            class="review-card pa-6 w-100 d-flex flex-column"
-            style="border: 1px solid rgba(8,145,178,0.12);"
-          >
-            <!-- Author row -->
-            <div class="d-flex align-center mb-3" style="gap: 12px;">
-              <v-avatar size="44" :style="{ background: avatarColor(review.name) }">
-                <span class="text-white font-weight-bold" style="font-size: 1rem;">
-                  {{ initial(review.name) }}
-                </span>
-              </v-avatar>
-              <div class="flex-grow-1" style="min-width: 0;">
-                <div class="font-weight-bold" style="font-size: 0.95rem; color: #1a1a1a;">
-                  {{ review.name }}
-                </div>
-                <div class="text-secondary" style="font-size: 0.78rem;">
-                  {{ relativeTime(review.date) }}
-                </div>
+          <!-- Author row -->
+          <div class="d-flex align-center mb-3" style="gap: 12px;">
+            <v-avatar size="44" :style="{ background: avatarColor(review.name) }">
+              <span class="text-white font-weight-bold" style="font-size: 1rem;">
+                {{ initial(review.name) }}
+              </span>
+            </v-avatar>
+            <div class="flex-grow-1" style="min-width: 0;">
+              <div class="font-weight-bold" style="font-size: 0.95rem; color: #1a1a1a;">
+                {{ review.name }}
               </div>
-              <v-icon size="20" style="color: #4285F4;">mdi-google</v-icon>
+              <div class="text-secondary" style="font-size: 0.78rem;">
+                {{ relativeTime(review.date) }}
+              </div>
             </div>
+          </div>
 
-            <!-- Stars -->
-            <div class="d-flex mb-3" style="gap: 2px;">
-              <v-icon
-                v-for="n in 5"
-                :key="n"
-                size="18"
-                :color="n <= review.rating ? 'amber-darken-1' : 'grey-lighten-1'"
-              >
-                mdi-star
-              </v-icon>
-            </div>
+          <!-- Stars -->
+          <div class="d-flex mb-3" style="gap: 2px;">
+            <v-icon
+              v-for="n in 5"
+              :key="n"
+              size="18"
+              :color="n <= review.rating ? 'amber-darken-1' : 'grey-lighten-1'"
+            >
+              mdi-star
+            </v-icon>
+          </div>
 
-            <!-- Review text -->
-            <p class="text-secondary" style="font-size: 0.9rem; line-height: 1.65; flex: 1; white-space: pre-line;">
-              {{ review.text }}
-            </p>
-          </v-card>
-        </v-col>
-      </v-row>
-
+          <!-- Review text -->
+          <p class="text-secondary" style="font-size: 0.9rem; line-height: 1.65; flex: 1; white-space: pre-line;">
+            {{ review.text }}
+          </p>
+        </v-card>
+      </div>
     </v-container>
+
   </section>
 </template>
 
@@ -141,7 +134,30 @@ function relativeTime(dateStr) {
   letter-spacing: -0.02em;
 }
 
+.reviews-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 14px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(8, 145, 178, 0.3) transparent;
+}
+
+.reviews-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.reviews-track::-webkit-scrollbar-thumb {
+  background: rgba(8, 145, 178, 0.3);
+  border-radius: 99px;
+}
+
 .review-card {
+  flex: 0 0 330px;
+  max-width: 330px;
+  scroll-snap-align: start;
   transition: box-shadow 0.25s, transform 0.25s;
 }
 

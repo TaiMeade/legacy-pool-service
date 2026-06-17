@@ -9,7 +9,7 @@
     <v-app-bar-title class="pa-0" style="min-width: 200px;">
       <a href="#hero" class="d-flex align-center text-decoration-none" style="gap: 10px;" @click.prevent="smoothScroll('#hero')">
         <div class="logo-badge d-flex align-center justify-center">
-          <v-icon color="white" size="24">mdi-pool</v-icon>
+          <v-img :src="logo" alt="Legacy Pool Co. logo" width="34" height="34" :aspect-ratio="1" />
         </div>
         <div class="d-flex flex-column" style="line-height: 1.15;">
           <span class="font-weight-bold" style="color: #FFFFFF; font-size: 1rem;">Legacy Pool Co.</span>
@@ -85,6 +85,7 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import logo from '@/assets/logo.png'
 
 const emit = defineEmits(['open-contact'])
 
@@ -94,6 +95,7 @@ const scrolled = ref(false)
 const navLinks = [
   { label: 'About',        anchor: '#about',        icon: 'mdi-information-outline' },
   { label: 'Services',     anchor: '#services',     icon: 'mdi-pool' },
+  { label: 'Gallery',      anchor: '#gallery',      icon: 'mdi-image-multiple-outline' },
   { label: 'Why Us',       anchor: '#why-us',       icon: 'mdi-shield-check-outline' },
   { label: 'Service Area', anchor: '#service-area', icon: 'mdi-map-marker-outline' },
   { label: 'Reviews',      anchor: '#reviews',      icon: 'mdi-star-outline' },
@@ -129,10 +131,11 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 <style scoped>
 .logo-badge {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 11px;
-  background: linear-gradient(135deg, #06B6D4 0%, #075985 100%);
-  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
 }
 </style>

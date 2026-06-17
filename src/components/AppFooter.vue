@@ -7,7 +7,7 @@
         <v-col cols="12" md="4" class="mb-8 mb-md-0">
           <div class="d-flex align-center mb-4" style="gap: 12px;">
             <div class="logo-badge d-flex align-center justify-center">
-              <v-icon color="white" size="24">mdi-pool</v-icon>
+              <v-img :src="logo" alt="Legacy Pool Co. logo" width="34" height="34" :aspect-ratio="1" />
             </div>
             <div>
               <div class="text-white font-weight-bold" style="font-size: 1rem;">Legacy Pool Co.</div>
@@ -122,6 +122,8 @@
 </template>
 
 <script setup>
+import logo from '@/assets/logo.png'
+
 defineEmits(['open-contact'])
 
 const footerServices = [
@@ -135,11 +137,12 @@ const footerServices = [
 
 <style scoped>
 .logo-badge {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 11px;
-  background: linear-gradient(135deg, #06B6D4 0%, #075985 100%);
-  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 }
 
 .footer-heading {

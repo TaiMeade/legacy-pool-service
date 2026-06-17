@@ -8,6 +8,7 @@
       <HeroSection @open-contact="contactOpen = true" />
       <AboutSection />
       <ServicesSection @open-contact="contactOpen = true" />
+      <GallerySection />
       <WhyUsSection />
       <ServiceAreaSection />
       <ReviewsSection />
@@ -25,6 +26,7 @@ import AppNavbar          from '@/components/AppNavbar.vue'
 import HeroSection        from '@/components/HeroSection.vue'
 import AboutSection       from '@/components/AboutSection.vue'
 import ServicesSection    from '@/components/ServicesSection.vue'
+import GallerySection     from '@/components/GallerySection.vue'
 import WhyUsSection       from '@/components/WhyUsSection.vue'
 import ServiceAreaSection from '@/components/ServiceAreaSection.vue'
 import ReviewsSection      from '@/components/ReviewsSection.vue'
