@@ -1,5 +1,5 @@
 <template>
-  <header class="nav" :class="{ 'nav--solid': scrolled || menuOpen }">
+  <header class="nav" :class="{ 'nav--solid': scrolled || menuOpen || contactOpen }">
     <div class="wrap nav__inner">
       <!-- Brand -->
       <a href="#hero" class="nav__brand" @click.prevent="go('#hero')">
@@ -50,6 +50,9 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import logo from '@/assets/logo.png'
 
 const emit = defineEmits(['open-contact'])
+defineProps({
+  contactOpen: { type: Boolean, default: false },
+})
 
 const scrolled = ref(false)
 const menuOpen = ref(false)

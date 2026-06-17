@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <AppNavbar @open-contact="contactOpen = true" />
+    <AppNavbar :contact-open="contactOpen" @open-contact="contactOpen = true" />
 
     <main>
       <HeroSection @open-contact="contactOpen = true" />
