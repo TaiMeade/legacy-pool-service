@@ -81,7 +81,7 @@ const services = [
 .foot__inner {
   position: relative;
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1.3fr 1.4fr;
+  grid-template-columns: 1.6fr 1fr 1.43fr 1.4fr;
   gap: clamp(2rem, 4vw, 3rem);
 }
 

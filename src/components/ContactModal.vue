@@ -192,6 +192,7 @@ async function submit() {
   if (!valid) return
 
   await sendEmail({
+    to_email:     'legacypoolservice26@gmail.com',
     from_name:    form.value.name,
     from_email:   form.value.email,
     from_phone:   form.value.phone || 'Not provided',
