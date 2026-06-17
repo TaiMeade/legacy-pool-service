@@ -22,10 +22,6 @@
             <span>Years of experience</span>
           </div>
           <div class="about__stat">
-            <strong>$150</strong>
-            <span>Weekly service / mo</span>
-          </div>
-          <div class="about__stat">
             <strong>100%</strong>
             <span>Family owned</span>
           </div>

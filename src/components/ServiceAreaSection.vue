@@ -46,11 +46,6 @@ defineEmits(['open-contact'])
 const areas = [
   'Yuma',
   'Foothills',
-  'Fortuna Foothills',
-  'Somerton',
-  'San Luis',
-  'Wellton',
-  'Gadsden',
   'Surrounding areas',
 ]
 </script>
