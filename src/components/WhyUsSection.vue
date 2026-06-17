@@ -1,100 +1,63 @@
 <template>
-  <section id="why-us" class="py-16" style="background: linear-gradient(135deg, #0C4A6E 0%, #075985 100%)">
-    <v-container>
+  <section id="why-us" class="section section--sand whyus">
+    <div class="wrap whyus__grid">
+      <div class="whyus__head">
+        <span class="eyebrow"><i class="mdi mdi-shield-check-outline"></i> Why Choose Us</span>
+        <h2 class="h2 whyus__title">The Legacy Pool difference</h2>
+        <p class="lead">
+          We're not a franchise — we're your neighbors. That means honest advice, dependable
+          scheduling, and a pool that's treated like our own, every single visit.
+        </p>
+        <button class="btn btn--water" @click="$emit('open-contact')">
+          <i class="mdi mdi-clipboard-text-outline"></i> Get a free estimate
+        </button>
+      </div>
 
-      <!-- Header -->
-      <v-row justify="center">
-        <v-col cols="12" md="8" class="text-center mb-10">
-          <div class="section-label mb-3">Why Choose Us</div>
-          <h2 class="text-white font-weight-black mb-4" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem); line-height: 1.15; letter-spacing: -0.02em;">
-            The Legacy Pool Co. Difference
-          </h2>
-          <p class="text-white" style="opacity: 0.88; font-size: 1rem; line-height: 1.7;">
-            We're a local, family-run team — which means honest advice, dependable service,
-            and a pool that's treated like our own, every single visit.
-          </p>
-        </v-col>
-      </v-row>
-
-      <!-- Feature grid -->
-      <v-row justify="center">
-        <v-col
-          v-for="feature in features"
-          :key="feature.title"
-          cols="12"
-          sm="6"
-          lg="3"
-        >
-          <div class="feature-card pa-6 rounded-xl d-flex flex-column align-center text-center h-100">
-            <div class="feature-icon-wrap mb-4">
-              <v-icon :icon="feature.icon" color="accent" size="28" />
-            </div>
-            <h3 class="text-white font-weight-bold mb-2" style="font-size: 1.05rem;">
-              {{ feature.title }}
-            </h3>
-            <p class="text-white" style="opacity: 0.82; font-size: 0.875rem; line-height: 1.6; margin: 0;">
-              {{ feature.description }}
-            </p>
+      <div class="whyus__features">
+        <div v-for="f in features" :key="f.title" class="card card--hover whyus__feature">
+          <span class="icon-chip"><i :class="`mdi ${f.icon}`"></i></span>
+          <div>
+            <h3 class="h3 whyus__feature-title">{{ f.title }}</h3>
+            <p class="whyus__feature-text">{{ f.text }}</p>
           </div>
-        </v-col>
-      </v-row>
-
-    </v-container>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
 <script setup>
+defineEmits(['open-contact'])
+
 const features = [
-  {
-    icon: 'mdi-home-heart',
-    title: 'Family-Owned & Operated',
-    description: 'A local business built on relationships — you deal directly with the people who service your pool.',
-  },
-  {
-    icon: 'mdi-tag-check-outline',
-    title: 'Free Estimates',
-    description: 'Honest, no-obligation estimates before any work begins. No surprises, no hidden fees.',
-  },
-  {
-    icon: 'mdi-clock-check-outline',
-    title: 'Over 3 Years of Experience',
-    description: 'Hands-on experience keeping pools clean, balanced, and running efficiently year-round.',
-  },
-  {
-    icon: 'mdi-handshake-outline',
-    title: 'Honest, Reliable Service',
-    description: 'Dependable scheduling and straightforward communication you can count on, every time.',
-  },
+  { icon: 'mdi-home-heart', title: 'Family-Owned & Operated', text: 'A local business built on relationships — you deal directly with the people who service your pool.' },
+  { icon: 'mdi-tag-check-outline', title: 'Free Estimates', text: 'Honest, no-obligation estimates before any work begins. No surprises, no hidden fees.' },
+  { icon: 'mdi-clock-check-outline', title: 'Over 3 Years of Experience', text: 'Hands-on experience keeping Yuma pools clean, balanced, and running efficiently year-round.' },
+  { icon: 'mdi-handshake-outline', title: 'Honest, Reliable Service', text: 'Dependable scheduling and straightforward communication you can count on, every time.' },
 ]
 </script>
 
 <style scoped>
-.section-label {
-  color: #67E8F9;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.whyus__grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  align-items: start;
 }
+.whyus__head { position: sticky; top: 96px; }
+.whyus__title { margin: 1rem 0 1.2rem; }
+.whyus__head .btn { margin-top: 1.8rem; }
 
-.feature-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(4px);
-  transition: background 0.2s;
+.whyus__features { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.whyus__feature { display: flex; gap: 1.1rem; }
+.whyus__feature-title { margin: 0 0 0.4rem; font-size: 1.05rem; }
+.whyus__feature-text { font-size: 0.9rem; line-height: 1.6; color: var(--muted); margin: 0; }
+
+@media (max-width: 880px) {
+  .whyus__grid { grid-template-columns: 1fr; }
+  .whyus__head { position: static; }
 }
-
-.feature-card:hover {
-  background: rgba(255, 255, 255, 0.14);
-}
-
-.feature-icon-wrap {
-  width: 52px;
-  height: 52px;
-  border-radius: 13px;
-  background: rgba(6, 182, 212, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@media (max-width: 520px) {
+  .whyus__features { grid-template-columns: 1fr; }
 }
 </style>

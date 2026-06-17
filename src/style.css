@@ -1,3 +1,211 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============================================================================
+   LEGACY POOL CO. — design system
+   Concept: "sunlit water in the desert." Deep pool teal + Yuma sun gold on a
+   warm sand deck. Display = Clash Display, body = General Sans.
+   ========================================================================== */
+
+:root {
+  /* Water */
+  --ink:      #07232E; /* deepest pool shadow — primary text + darkest bg */
+  --deep:     #0A3A4A; /* deep end */
+  --deep-2:   #0E5C70; /* mid water */
+  --water:    #0E7E97; /* brand pool teal */
+  --aqua:     #27C0D9; /* bright shallow water — accent */
+  --aqua-soft:#7FE0EE; /* sunlit highlight */
+
+  /* Desert sun */
+  --sun:      #F5A524; /* Yuma sun gold — warm CTA */
+  --sun-deep: #E2872E;
+
+  /* Surfaces */
+  --sand:     #F7F1E6; /* warm pool-deck background */
+  --sand-2:   #EFE6D5; /* slightly deeper sand */
+  --paper:    #FFFFFF;
+
+  /* Lines & muted text */
+  --line:   rgba(7, 35, 46, 0.12);
+  --muted:  rgba(7, 35, 46, 0.62);
+  --muted-light: rgba(255, 255, 255, 0.78);
+
+  --shadow-card: 0 24px 50px -28px rgba(7, 35, 46, 0.32);
+
+  font-family: 'General Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* ---- Base ---------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+body { margin: 0; }
+
+/* Fixed navbar offset so anchor jumps don't hide section headings */
+section[id] { scroll-margin-top: 88px; }
+
+body,
+.v-application {
+  font-family: 'General Sans', ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+  color: var(--ink);
+  background: var(--sand);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Clash Display', 'General Sans', sans-serif;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+}
+
+::selection { background: var(--aqua); color: var(--ink); }
+
+a { color: inherit; }
+
+/* ---- Layout ------------------------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.section { position: relative; padding-block: clamp(4.5rem, 9vw, 8rem); }
+.section--sand  { background: var(--sand); }
+.section--paper { background: var(--paper); }
+.section--deep {
+  background: linear-gradient(165deg, var(--deep) 0%, var(--ink) 100%);
+  color: #fff;
+}
+.section--deep h1, .section--deep h2, .section--deep h3 { color: #fff; }
+
+/* ---- Type --------------------------------------------------------------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: 'General Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--water);
+}
+.section--deep .eyebrow { color: var(--aqua); }
+
+.h1 {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.7rem, 6.4vw, 5.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+}
+.h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 4.2vw, 3.3rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+.h3 {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+.lead {
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.62;
+  color: var(--muted);
+}
+.section--deep .lead { color: var(--muted-light); }
+
+.section-head { max-width: 640px; }
+.section-head--center { margin-inline: auto; text-align: center; }
+
+/* ---- Buttons ------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  font-family: 'General Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 1rem 1.65rem;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.btn .mdi { font-size: 1.2em; }
+.btn--sun {
+  background: var(--sun);
+  color: var(--ink);
+  box-shadow: 0 12px 26px -10px rgba(245, 165, 36, 0.7);
+}
+.btn--sun:hover { transform: translateY(-2px); box-shadow: 0 18px 32px -10px rgba(245, 165, 36, 0.8); }
+.btn--ink { background: var(--ink); color: #fff; }
+.btn--ink:hover { transform: translateY(-2px); background: var(--deep); }
+.btn--water { background: var(--water); color: #fff; box-shadow: 0 12px 26px -12px rgba(14, 126, 151, 0.8); }
+.btn--water:hover { transform: translateY(-2px); }
+.btn--ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.45); }
+.btn--ghost:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.7); }
+.btn--outline { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn--outline:hover { border-color: var(--water); color: var(--water); }
+.btn--lg { padding: 1.15rem 2rem; font-size: 1.0625rem; }
+
+/* ---- Cards -------------------------------------------------------------- */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+.card--hover:hover { transform: translateY(-5px); box-shadow: var(--shadow-card); border-color: transparent; }
+
+.icon-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 15px;
+  font-size: 1.6rem;
+  background: linear-gradient(145deg, rgba(39, 192, 217, 0.16), rgba(14, 126, 151, 0.12));
+  color: var(--water);
+}
+
+/* ---- Waterline divider -------------------------------------------------- */
+/* A wavy SVG sits at the bottom of a section and "pours" into the next. */
+.waterline { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; line-height: 0; z-index: 2; pointer-events: none; }
+.waterline svg { display: block; width: 100%; height: clamp(40px, 6vw, 80px); }
+.waterline--top { bottom: auto; top: -1px; transform: rotate(180deg); }
+
+/* ---- Animations --------------------------------------------------------- */
+@keyframes drift1 { to { transform: translate(8vw, 6vw) scale(1.18); } }
+@keyframes drift2 { to { transform: translate(-7vw, -5vw) scale(1.12); } }
+@keyframes ripple-shimmer { to { transform: translate3d(-220px, -120px, 0); } }
+@keyframes float-soft { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+
+.rise { animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* ---- Accessibility ------------------------------------------------------ */
+:focus-visible { outline: 3px solid var(--aqua); outline-offset: 2px; border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

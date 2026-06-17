@@ -1,21 +1,18 @@
 <template>
   <v-app>
-    <!-- Navbar (transparent on hero, solid on scroll) -->
     <AppNavbar @open-contact="contactOpen = true" />
 
-    <!-- Page sections -->
-    <v-main>
+    <main>
       <HeroSection @open-contact="contactOpen = true" />
       <AboutSection />
       <ServicesSection @open-contact="contactOpen = true" />
       <GallerySection />
-      <WhyUsSection />
-      <ServiceAreaSection />
+      <WhyUsSection @open-contact="contactOpen = true" />
+      <ServiceAreaSection @open-contact="contactOpen = true" />
       <ReviewsSection />
       <AppFooter @open-contact="contactOpen = true" />
-    </v-main>
+    </main>
 
-    <!-- Contact modal (global) -->
     <ContactModal v-model="contactOpen" />
   </v-app>
 </template>
@@ -29,7 +26,7 @@ import ServicesSection    from '@/components/ServicesSection.vue'
 import GallerySection     from '@/components/GallerySection.vue'
 import WhyUsSection       from '@/components/WhyUsSection.vue'
 import ServiceAreaSection from '@/components/ServiceAreaSection.vue'
-import ReviewsSection      from '@/components/ReviewsSection.vue'
+import ReviewsSection     from '@/components/ReviewsSection.vue'
 import AppFooter          from '@/components/AppFooter.vue'
 import ContactModal       from '@/components/ContactModal.vue'
 
@@ -37,11 +34,7 @@ const contactOpen = ref(false)
 </script>
 
 <style>
-html {
-  scroll-behavior: smooth;
-}
-
-* {
-  box-sizing: border-box;
-}
+/* Keep Vuetify's app surface from fighting our sand background */
+.v-application__wrap { min-height: 100vh; }
+main { display: block; }
 </style>

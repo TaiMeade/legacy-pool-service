@@ -1,95 +1,110 @@
 <template>
-  <section id="about" class="py-16 bg-background">
-    <v-container>
-      <v-row align="center" justify="center">
+  <section id="about" class="section section--sand">
+    <div class="wrap about">
+      <!-- Copy -->
+      <div class="about__copy">
+        <span class="eyebrow"><i class="mdi mdi-water"></i> About Us</span>
+        <h2 class="h2 about__title">Honest, local pool care you can rely on</h2>
+        <p class="lead">
+          Legacy Pool Co. was founded with one goal — to provide dependable, honest pool service
+          that Yuma families can trust. As a local, family-owned business, we build lasting
+          relationships and treat every pool as if it were our own.
+        </p>
+        <p class="about__p">
+          From weekly service and filter cleanings to equipment repairs, timers, and valves, we keep
+          your water clean, safe, and running efficiently year-round — with honest communication and
+          no surprises.
+        </p>
 
-        <!-- Text content -->
-        <v-col cols="12" md="6" lg="5" order="2" order-md="1">
-          <div class="section-label mb-3">About Us</div>
-          <h2 class="section-title mb-5">
-            Honest, Local Pool Care<br />You Can Rely On
-          </h2>
-          <p class="text-secondary mb-4" style="font-size: 1.0625rem; line-height: 1.75;">
-            Legacy Pool Co. was founded with one goal in mind — to provide dependable, honest pool
-            service that customers can trust. As a local, family-owned business, we take pride in
-            building lasting relationships and delivering quality care to every pool we service.
-          </p>
-          <p class="text-secondary mb-6" style="font-size: 1.0625rem; line-height: 1.75;">
-            We specialize in reliable weekly pool service, filter cleanings and breakdowns, equipment
-            repairs, timers, valves, and general maintenance. We believe in honest communication and
-            treat every pool as if it were our own — delivering quality service with integrity and
-            professionalism.
-          </p>
-
-          <v-row dense>
-            <v-col v-for="stat in stats" :key="stat.label" cols="6">
-              <div class="stat-card pa-4 rounded-lg text-center mb-3">
-                <div class="text-primary font-weight-black mb-1" style="font-size: 1.875rem;">
-                  {{ stat.value }}
-                </div>
-                <div class="text-secondary" style="font-size: 0.8125rem;">{{ stat.label }}</div>
-              </div>
-            </v-col>
-          </v-row>
-        </v-col>
-
-        <!-- Visual panel -->
-        <v-col cols="12" md="5" lg="5" order="1" order-md="2" class="d-flex justify-center mb-8 mb-md-0">
-          <div class="about-visual rounded-xl d-flex flex-column align-center justify-center pa-8 text-center">
-            <v-icon color="white" size="64" class="mb-4">mdi-pool</v-icon>
-            <p class="text-white font-weight-bold mb-2" style="font-size: 1.125rem;">Family-Owned &amp; Operated</p>
-            <p class="text-white" style="opacity: 0.85; font-size: 0.9rem; line-height: 1.6; max-width: 260px;">
-              Proudly serving Yuma, Arizona and the surrounding area with reliable, year-round pool care.
-            </p>
-            <v-divider color="white" opacity="0.3" class="my-4 w-75" />
-            <div class="d-flex align-center" style="gap: 8px;">
-              <v-icon color="accent" size="20">mdi-map-marker</v-icon>
-              <span class="text-white" style="font-size: 0.875rem;">Yuma, AZ</span>
-            </div>
+        <div class="about__stats">
+          <div class="about__stat">
+            <strong>3+</strong>
+            <span>Years of experience</span>
           </div>
-        </v-col>
+          <div class="about__stat">
+            <strong>$150</strong>
+            <span>Weekly service / mo</span>
+          </div>
+          <div class="about__stat">
+            <strong>100%</strong>
+            <span>Family owned</span>
+          </div>
+        </div>
+      </div>
 
-      </v-row>
-    </v-container>
+      <!-- Deck panel -->
+      <aside class="about__panel">
+        <div class="about__panel-glow" aria-hidden="true"></div>
+        <i class="mdi mdi-pool about__panel-icon"></i>
+        <h3 class="about__panel-title">Family-owned &amp; operated</h3>
+        <p class="about__panel-text">
+          We live and work in Yuma. When you call, you reach the same friendly team that shows up
+          to care for your pool — every week.
+        </p>
+        <div class="about__panel-loc">
+          <i class="mdi mdi-map-marker"></i> Proudly serving Yuma, Arizona
+        </div>
+      </aside>
+    </div>
   </section>
 </template>
 
-<script setup>
-const stats = [
-  { value: '3+',   label: 'Years of Experience' },
-  { value: '$150', label: 'Weekly Service / mo' },
-  { value: '100%', label: 'Family Owned' },
-  { value: 'Free', label: 'Estimates' },
-]
-</script>
+<script setup></script>
 
 <style scoped>
-.section-label {
-  color: #0891B2;
-  font-size: 0.8125rem;
+.about {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+}
+.about__title { margin: 1rem 0 1.4rem; }
+.about__p { font-size: 1.0625rem; line-height: 1.7; color: var(--muted); margin: 1.1rem 0 0; }
+
+.about__stats { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; }
+.about__stat { display: flex; flex-direction: column; }
+.about__stat strong {
+  font-family: 'Clash Display', sans-serif;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 2.1rem;
+  line-height: 1;
+  color: var(--water);
 }
+.about__stat span { font-size: 0.85rem; color: var(--muted); margin-top: 0.3rem; }
 
-.section-title {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 900;
-  line-height: 1.15;
-  color: #0F172A;
-  letter-spacing: -0.02em;
+.about__panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  padding: clamp(2rem, 4vw, 2.75rem);
+  color: #fff;
+  background: linear-gradient(155deg, var(--water) 0%, var(--deep) 78%);
+  box-shadow: var(--shadow-card);
 }
-
-.stat-card {
-  background: rgba(8, 145, 178, 0.06);
-  border: 1px solid rgba(8, 145, 178, 0.16);
+.about__panel-glow {
+  position: absolute;
+  top: -30%; right: -20%;
+  width: 70%; height: 70%;
+  background: radial-gradient(circle, rgba(127, 224, 238, 0.4), transparent 65%);
+  filter: blur(14px);
 }
+.about__panel-icon { position: relative; font-size: 2.6rem; color: var(--aqua-soft); }
+.about__panel-title { position: relative; color: #fff; font-size: 1.4rem; margin: 1rem 0 0.7rem; }
+.about__panel-text { position: relative; font-size: 0.98rem; line-height: 1.6; color: rgba(255, 255, 255, 0.85); margin: 0; }
+.about__panel-loc {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.about__panel-loc .mdi { color: var(--aqua); }
 
-.about-visual {
-  background: linear-gradient(135deg, #075985 0%, #0891B2 100%);
-  width: 100%;
-  max-width: 380px;
-  min-height: 340px;
-  box-shadow: 0 20px 60px rgba(8, 145, 178, 0.3);
+@media (max-width: 880px) {
+  .about { grid-template-columns: 1fr; }
 }
 </style>

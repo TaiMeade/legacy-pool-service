@@ -4,15 +4,17 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
-// ─── THEME CONFIGURATION ─────────────────────────────────────────────────────
-// All brand colors live here. Edit these to retheme the entire site.
+// ─── THEME ───────────────────────────────────────────────────────────────────
+// "Sunlit water in the desert" — kept in sync with src/style.css :root tokens.
 const BRAND = {
-  primary:    '#075985', // Deep pool blue — main brand color
-  secondary:  '#475569', // Slate grey — supporting text & elements
-  accent:     '#06B6D4', // Bright cyan — CTAs, highlights, buttons
+  primary:    '#0E7E97', // pool teal
+  secondary:  '#5A6B72', // muted slate-teal
+  accent:     '#F5A524', // Yuma sun gold (CTAs)
+  ink:        '#07232E',
+  aqua:       '#27C0D9',
   error:      '#DC2626',
   success:    '#16A34A',
-  background: '#F8FAFC',
+  background: '#F7F1E6', // warm sand
   surface:    '#FFFFFF',
 }
 
@@ -24,21 +26,13 @@ export default createVuetify({
     themes: {
       legacyTheme: {
         dark: false,
-        colors: {
-          primary:    BRAND.primary,
-          secondary:  BRAND.secondary,
-          accent:     BRAND.accent,
-          error:      BRAND.error,
-          success:    BRAND.success,
-          background: BRAND.background,
-          surface:    BRAND.surface,
-        },
+        colors: { ...BRAND },
       },
     },
   },
   defaults: {
     VBtn: {
-      style: 'text-transform: none; letter-spacing: 0;',
+      style: 'text-transform: none; letter-spacing: 0; font-family: General Sans, sans-serif;',
     },
   },
 })
