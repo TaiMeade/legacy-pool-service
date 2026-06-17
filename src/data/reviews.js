@@ -12,39 +12,15 @@
 
 export const reviews = [
   {
-    name: 'Marcus Delgado',
+    name: 'John Doe',
     rating: 5,
     text: "Legacy Pool Co. has been doing our weekly service for a few months now and our pool has never looked better. Aubrianna is always on time, communicates great, and the water is crystal clear. Highly recommend!",
     date: '2026-06-09',
   },
   {
-    name: 'Sarah Whitfield',
+    name: 'Jane Smith',
     rating: 5,
     text: "Our pool turned bright green after we were out of town and I thought it was a lost cause. They did a green-to-clean and had it swimmable again in no time. Honest pricing and super friendly. Lifesavers!",
     date: '2026-05-28',
-  },
-  {
-    name: 'Tom Bradley',
-    rating: 5,
-    text: "Pump went out in the middle of summer and they got it fixed fast. Explained exactly what was wrong and didn't try to upsell me on anything. This is who you want taking care of your pool in Yuma.",
-    date: '2026-05-10',
-  },
-  {
-    name: 'Jennifer Ruiz',
-    rating: 5,
-    text: "Family owned and it shows — they actually care. Set up a new timer for us and walked me through how to program it. Reliable weekly service at a fair price.",
-    date: '2026-04-22',
-  },
-  {
-    name: 'David Nguyen',
-    rating: 5,
-    text: "Great service and very dependable for our weekly maintenance. They kept me updated the whole way through and everything has been excellent. Couldn't be happier.",
-    date: '2026-03-30',
-  },
-  {
-    name: 'Ashley Carter',
-    rating: 5,
-    text: "Had them out for a one-time deep cleaning before a party and they went above and beyond. Filter cleaning, brushed everything, balanced the chemicals. The pool sparkled. Will be switching to weekly service!",
-    date: '2026-02-15',
   },
 ]
