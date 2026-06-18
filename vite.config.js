@@ -4,8 +4,7 @@ import vuetify from 'vite-plugin-vuetify'
 import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
-  // base must match the repo name so asset paths resolve under GitHub Pages
-  base: '/legacy-pool-service/',
+  base: '/',
   plugins: [
     vue(),
     vuetify({ autoImport: true }),
