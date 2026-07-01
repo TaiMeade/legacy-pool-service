@@ -40,7 +40,7 @@
         <span class="hero__card-label">Weekly Pool Service</span>
         <div class="hero__price">
           <span class="hero__price-from">from</span>
-          <span class="hero__price-amt">$150</span>
+          <span class="hero__price-amt">$175</span>
           <span class="hero__price-per">/ month</span>
         </div>
         <ul class="hero__card-list">

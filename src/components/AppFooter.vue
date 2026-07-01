@@ -42,7 +42,7 @@
       <!-- CTA -->
       <div class="foot__cta">
         <h4 class="foot__head">Ready for clear water?</h4>
-        <p>Free estimate, no obligation. Weekly service from $150/month.</p>
+        <p>Free estimate, no obligation. Weekly service from $175/month.</p>
         <button class="btn btn--sun" @click="$emit('open-contact')">Get a free estimate</button>
         <a class="btn btn--ghost" href="tel:+19287500972"><i class="mdi mdi-phone"></i> Call now</a>
       </div>

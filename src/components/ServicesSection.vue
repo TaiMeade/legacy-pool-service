@@ -44,7 +44,7 @@
 defineEmits(['open-contact'])
 
 const services = [
-  { icon: 'mdi-pool', title: 'Weekly Pool Maintenance', text: 'Reliable weekly service to keep your water balanced, clean, and swim-ready all year — from $150/month.' },
+  { icon: 'mdi-pool', title: 'Weekly Pool Maintenance', text: 'Reliable weekly service to keep your water balanced, clean, and swim-ready all year — from $175/month.' },
   { icon: 'mdi-air-filter', title: 'Filter Cleaning & Breakdowns', text: 'Full filter cleanings and breakdowns to keep your system flowing efficiently and your water clear.' },
   { icon: 'mdi-wrench-outline', title: 'Equipment Repairs', text: 'We diagnose and repair pumps, filters, and pool equipment — getting everything running right.' },
   { icon: 'mdi-pipe-valve', title: 'Valve Replacement', text: 'Worn or leaking valves replaced quickly so your plumbing and water flow stay reliable.' },
