@@ -19,5 +19,11 @@ export const reviews = [
     rating: 5,
     text: "I wish I could leave 10 stars!!! ⭐️ ⭐️ ⭐️!!! Best pool company in town in my opinion. Very knowledgeable and consistent!! My pool has never looked better. Also, The water doesn’t leave my skin and hair feeling gross- they use the best chemicals and my eyes don’t burn from too much chlorine. The best part is, you are a supporting a local family business when you use them. When you need a repair, they will fix it and not charge an arm and a leg to do so. I can’t recommend them enough. Very satisfied and will be telling all of my family and friends to use them! Thank you Legacy Pool Co.",
     date: '2026-06-17',
+  },
+  {
+    name: 'Jeff Morrison',
+    rating: 5,
+    text: "Came and cleaned out a pool that sat empty for 3 years, got pump running and did some other work. \n\n Super nice, returns calls and messages promptly",
+    date: '2026-08-20'
   }
 ]
