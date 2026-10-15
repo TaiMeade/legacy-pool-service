@@ -26,7 +26,7 @@
           class="gallery__item"
           @click="openLightbox(i)"
         >
-          <img :src="img" :alt="`Legacy Pool Co. work photo ${i + 1}`" loading="lazy" />
+          <img :src="img.src" :alt="img.alt" loading="lazy" />
           <span class="gallery__zoom"><i class="mdi mdi-magnify-plus-outline"></i></span>
         </button>
       </div>
@@ -38,7 +38,7 @@
         <button class="lightbox__close" aria-label="Close" @click="lightbox = false">
           <i class="mdi mdi-close"></i>
         </button>
-        <img :src="images[current]" alt="Legacy Pool Co. work photo" class="lightbox__img" />
+        <img :src="images[current].src" :alt="images[current].alt" class="lightbox__img" />
         <div class="lightbox__nav">
           <button aria-label="Previous" @click.stop="prev"><i class="mdi mdi-chevron-left"></i></button>
           <span>{{ current + 1 }} / {{ images.length }}</span>
@@ -65,7 +65,21 @@ const modules = import.meta.glob(
   '../assets/gallery/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}',
   { eager: true, import: 'default', query: '?url' }
 )
-const images = Object.keys(modules).sort().map((key) => modules[key])
+
+// Alt text for search engines and screen readers, keyed by file name. New photos without an
+// entry fall back to a generic description.
+const altText = {
+  'pool-01.jpg': 'Pool filter cartridge removed for a filter breakdown next to the pump and plumbing at a Yuma home',
+  'pool-02.jpg': 'Pool filter grids laid out on the patio during a filter cleaning in Yuma, AZ',
+  'pool-03.jpg': 'Cloudy green backyard pool before a green-to-clean service in Yuma, AZ',
+  'pool-04.jpg': 'Same backyard pool clear and sparkling after a green-to-clean service by Legacy Pool Co.',
+  'pool-05.jpg': 'Crystal-clear blue backyard pool after weekly pool maintenance in Yuma, Arizona',
+  'pool-06.jpg': 'Clean, balanced backyard pool maintained by Legacy Pool Co. in Yuma, AZ',
+}
+const images = Object.keys(modules).sort().map((key, i) => ({
+  src: modules[key],
+  alt: altText[key.split('/').pop()] ?? `Pool cleaned and maintained by Legacy Pool Co. in Yuma, AZ (photo ${i + 1})`,
+}))
 
 const lightbox = ref(false)
 const current = ref(0)

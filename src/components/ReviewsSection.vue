@@ -43,8 +43,12 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { reviews } from '@/data/reviews'
+import { BUILD_TIME } from '@/buildTime'
+
+const now = ref(BUILD_TIME)
+onMounted(() => { now.value = Date.now() })
 
 const totalReviews = computed(() => reviews.length)
 const overallRating = computed(() => {
@@ -59,7 +63,7 @@ function avatarColor(name) { return avatarColors[name.charCodeAt(0) % avatarColo
 
 function relativeTime(dateStr) {
   const then = new Date(dateStr).getTime()
-  const days = Math.max(0, Math.round((Date.now() - then) / 86400000))
+  const days = Math.max(0, Math.round((now.value - then) / 86400000))
   if (days < 1) return 'Today'
   if (days === 1) return 'A day ago'
   if (days < 7) return `${days} days ago`

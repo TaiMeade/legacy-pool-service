@@ -12,7 +12,7 @@
 
       <!-- Desktop links -->
       <nav class="nav__links" aria-label="Primary">
-        <a v-for="l in links" :key="l.anchor" href="#" @click.prevent="go(l.anchor)">{{ l.label }}</a>
+        <a v-for="l in links" :key="l.anchor" :href="l.anchor" @click.prevent="go(l.anchor)">{{ l.label }}</a>
       </nav>
 
       <!-- Actions -->
@@ -33,7 +33,7 @@
     <!-- Mobile sheet -->
     <transition name="sheet">
       <div v-if="menuOpen" class="nav__sheet">
-        <a v-for="l in links" :key="l.anchor" href="#" @click.prevent="go(l.anchor)">
+        <a v-for="l in links" :key="l.anchor" :href="l.anchor" @click.prevent="go(l.anchor)">
           <i :class="`mdi ${l.icon}`"></i> {{ l.label }}
         </a>
         <div class="nav__sheet-cta">

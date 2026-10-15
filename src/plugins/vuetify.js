@@ -1,8 +1,6 @@
 import 'vuetify/styles'
 import '@mdi/font/css/materialdesignicons.css'
 import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
 
 // ─── THEME ───────────────────────────────────────────────────────────────────
 // "Sunlit water in the desert" — kept in sync with src/style.css :root tokens.
@@ -18,9 +16,10 @@ const BRAND = {
   surface:    '#FFFFFF',
 }
 
+// Components are auto-imported per use by vite-plugin-vuetify, which keeps unused
+// components (and their CSS) out of the bundle for faster page loads.
 export default createVuetify({
-  components,
-  directives,
+  ssr: true,
   theme: {
     defaultTheme: 'legacyTheme',
     themes: {

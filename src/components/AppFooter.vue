@@ -56,11 +56,15 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
 import logo from '@/assets/logo.png'
+import { BUILD_TIME } from '@/buildTime'
 
 defineEmits(['open-contact'])
 
-const year = new Date().getFullYear()
+// Start from the build year so the pre-rendered HTML hydrates cleanly, then use today's.
+const year = ref(new Date(BUILD_TIME).getFullYear())
+onMounted(() => { year.value = new Date().getFullYear() })
 const services = [
   'Weekly Maintenance',
   'Filter Cleaning',

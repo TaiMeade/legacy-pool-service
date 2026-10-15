@@ -1,6 +1,11 @@
 {
+  "id": "/",
   "name": "Legacy Pool Co.",
   "short_name": "Legacy Pool",
+  "description": "Family-owned weekly pool service in Yuma, AZ. Clean, balanced water year-round.",
+  "lang": "en-US",
+  "start_url": "/",
+  "scope": "/",
   "icons": [
     { "src": "/favicon-192x192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "/favicon-512x512.png", "sizes": "512x512", "type": "image/png" }

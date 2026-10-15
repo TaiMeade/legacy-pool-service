@@ -17,7 +17,7 @@
             Tell us about your pool — we'll get right back to you.
           </div>
         </div>
-        <v-btn icon variant="text" @click="close">
+        <v-btn icon variant="text" aria-label="Close" @click="close">
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-card-title>
