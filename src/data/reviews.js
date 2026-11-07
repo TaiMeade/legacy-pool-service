@@ -26,4 +26,10 @@ export const reviews = [
     text: "Came and cleaned out a pool that sat empty for 3 years, got pump running and did some other work. \n\n Super nice, returns calls and messages promptly",
     date: '2026-08-20'
   }
+  {
+    name: 'Katelyn Castillo',
+    rating: 5,
+    text: "Great service! They did a good job cleaning our pool, and we’re happy with the results. Definitely recommend them if you’re looking for a reliable pool cleaning company!",
+    date: '2026-11-06',
+  }
 ]
